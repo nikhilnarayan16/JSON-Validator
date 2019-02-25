@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
+
+<script language="JavaScript">
+function showInput(){
+var first = document.getElementById('user_input').value.substr(0,1);
+if(first == '{'){
+	document.getElementById('display').innerHTML= 'VALID JSON';
+	var x = document.getElementById("user_input").value;
+try{
+a=JSON.parse(x);
+}
+catch(e){
+document.getElementById('display').innerHTML =e;
+if(e == 'SyntaxError: Unexpected end of JSON input') {
+ document.getElementById('display').innerHTML = "SyntaxError: Missing '{' or '}' ";   
+}
+else {
+ document.getElementById('display').innerHTML = "SyntaxError: Missing ':' or ',' or \"\ ";      
+}
+}
+}
+else if(first != '{'){
+document.getElementById('display').innerHTML = "SyntaxError: Missing '{' or \"\ ";
+}
+
+if(document.getElementById('display').innerHTML=='VALID JSON'){
+	document.getElementById('display').style.color = "#008000";
+}else{
+	document.getElementById('display').style.color = "#8B0000";
+}
+}
+</script>
+
+<script type="text/javascript">
+	function eraseText() {
+		document.getElementById('user_input').value = '';
+		document.getElementById('display').innerHTML='';
+	}
+</script>
+
+<style>
+
+.parallax {
+    background-image: url("ny.jpg");
+    min-height: 350px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax1{
+    background-image: url("ny.jpg");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax2{
+    background-color: #BDC3C7;
+    min-height: 60px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3{
+    background-image: url("ny.jpg");
+    min-height: 20px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax4{
+	 background-color: #BDC3C7;
+    min-height: 60px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax5{
+	background-image: url("ny.jpg");
+    min-height: 10px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn {
+  background-color: #F7DC6F  ;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  opacity: 1;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+	opacity: 0.5;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="parallax" style="display: flex; justify-content:center;">
+	<h1 style="font-size: 5em; font-weight: bold; margin-top: 3em; color:#F2F5FA;" ><a href="#section2" style="text-decoration: none;color: white;">JSON   VALIDATOR</a></h1>
+</div>
+
+<div class="parallax2" style="display: flex; justify-content:center;">
+<h2 style="font-size:24px; color: #154360  ;"><em>
+JSON Validator is a validator which validates messy JSON code. It's a lightweight data-interchange format.
+</em>
+</h2>
+</div>
+
+<div class="parallax5" style="display: flex;justify-content: center;">
+<h2 style="color: #ffffff; margin-top: 8em; text-decoration: underline; font-size: 30px;"><strong> TEST YOUR CODE:-</strong></h2>
+</div>
+
+<div class="parallax1" style="display: flex;justify-content: center;" id="section2">
+	<form>
+<textarea style="margin-top: 3em;" id="user_input" cols="80"  rows="30"></textarea>
+<br><br>
+</form>
+</div>
+
+<div class="parallax3" style="display: flex; justify-content:center;">
+	<button class="btn" onclick="showInput();" style="width: 12%; margin-bottom: 3em;margin-top: 2em; margin-right: 1em;"><a href="#section" style="text-decoration:none;color: black;">VALIDATE</a><br/></button>
+<button class="btn" onclick="eraseText();" style="width: 12%; margin-bottom: 3em;margin-top: 2em;"><a href="#section2" style="text-decoration: none; color: black;">CLEAR</a><br/></button></div>
+
+<div class="parallax4" id="section" style="display: flex; justify-content:center;">
+	<p style="font-weight: bold; text-decoration: underline;margin-right: 0.5em; font-size: 18px;"><em>RESULT:</em></p>
+<p style="font-weight: bold;font-size: 18px;"><span id='display'></span></p>
+</div>
+
+<div class="parallax5" style="display: flex;justify-content: center;">
+<h2 style="color: #ffffff; margin-top: 2em; font-size: 26px;margin-bottom: 2em;margin-right: 0.5em;"><strong>By:-</strong></h2>
+<h2 style="color: #ffffff; margin-top: 2em; font-size: 26px;margin-bottom: 2em;"><em>Nikhil Narayan</em></h2>
+</div>
+</body>
+<html>
